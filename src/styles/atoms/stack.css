@@ -1,0 +1,8 @@
+.stack {
+	display: grid;
+	grid-template-areas: "stack";
+	aspect-ratio: var(--stack-aspect-ratio);
+	> * {
+		grid-area: stack;
+	}
+}

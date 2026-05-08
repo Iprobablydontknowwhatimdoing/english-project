@@ -1,0 +1,166 @@
+/* --- 1. Base & Layout --- */
+
+
+*:not(dialog, [popover]) {
+	margin: 0;
+}
+
+html {
+	scrollbar-gutter: stable;
+	color-scheme: light dark;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	overflow-x: clip;
+}
+
+body {
+	max-inline-size: 100%;
+	min-block-size: 100dvb;
+	line-height: 1.5;
+}
+
+/* --- 2. Typography --- */
+
+h1, h2, h3, h4, h5, h6 {
+	text-wrap: balance;
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+	overflow-wrap: break-word;
+}
+
+ol, ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration-skip-ink: auto;
+	text-underline-offset: 0.2ex;
+}
+
+sup, sub {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+hr {
+	border: none;
+	border-block-start: 1px solid;
+	color: inherit;
+}
+
+abbr[title] {
+	text-decoration: underline dotted;
+	cursor: help;
+}
+
+code, kbd, samp, pre {
+	font-size: 0.875em;
+}
+
+/* Typography styles for unclassed elements only */
+:not([class]) {
+	h1, h2, h3, h4, h5, h6 {
+		margin-block: 0.75em;
+		line-height: 1.25;
+		letter-spacing: -0.025ch;
+	}
+
+	p, ol, ul {
+		margin-block: 1em;
+	}
+
+	ol, ul {
+		list-style: revert;
+		padding-inline-start: 1.5em;
+	}
+
+	li {
+		margin-block: 0.5em;
+	}
+}
+
+/* --- 3. Media & Assets --- */
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+img {
+	font-style: italic;
+}
+
+/* --- 4. Forms & Interactive --- */
+
+input, button, textarea, select {
+	font: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+	color: currentColor;
+}
+
+textarea, select, input {
+	field-sizing: content;
+	max-inline-size: 100%;
+}
+
+textarea {
+	resize: vertical;
+}
+
+button {
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: not-allowed;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+dialog {
+	color: inherit;
+}
+
+/* --- 5. Utilities & Accessibility --- */
+
+:target {
+	scroll-margin-top: 2rem;
+}
+
+/* Smooth scrolling & auto-height animations */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+		interpolate-size: allow-keywords;
+	}
+}
+
+/* Mobile-specific optimizations */
+@media (hover: none) {
+	html {
+		-webkit-tap-highlight-color: transparent;
+	}
+}

@@ -1,5 +1,18 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+	fonts: [{
+    provider: fontProviders.fontsource(),
+    name: "Atkinson Hyperlegible Next",
+    cssVariable: "--atk-next",
+		optimizedFallbacks: false,
+  },
+	{
+		provider: fontProviders.fontsource(),
+		name: "Atkinson Hyperlegible Mono",
+		cssVariable: "--atk-mono",
+		optimizedFallbacks: false,
+	}]
+});

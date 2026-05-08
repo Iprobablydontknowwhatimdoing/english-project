@@ -1,0 +1,17 @@
+:root {
+	--type-title: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+	--type-body: var(--atk-next), 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+	--type-label: var(--atk-mono), 'Nimbus Mono PS', 'Courier New', monospace;
+}
+
+h1, h2, h3, h4, h5, h6, .header {
+	font-family: var(--type-title);
+}
+
+p, li, aside, blockquote, .body {
+	font-family: var(--type-body);
+}
+
+label, code, pre, .label {
+	font-family: var(--type-label);
+}
