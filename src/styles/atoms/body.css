@@ -1,0 +1,7 @@
+body {
+	background-color: var(--primary-surface);
+	color: var(--primary);
+	min-block-size: 500vb;
+	max-inline-size: 100rem;
+	margin-inline: auto;
+}

@@ -2,14 +2,29 @@
 	--type-title: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
 	--type-body: var(--atk-next), 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
 	--type-label: var(--atk-mono), 'Nimbus Mono PS', 'Courier New', monospace;
+	--type-size-body: clamp(0.75rem, 0.607rem + 1.429vi, 1.75rem);
+	--type-size-title: clamp(2.5rem, 2.369rem + 1.46vi, 3.5rem);
+	--type-size-header: clamp(1.5rem, 1.401rem + 1.095vi, 2.25rem);
+	--type-size-body: clamp(0.75rem, 0.684rem + 0.73vi, 1.25rem);
+	--font-size: var(--type-size-body);
+	font-size: var(--type-size-body);
 }
 
 h1, h2, h3, h4, h5, h6, .header {
 	font-family: var(--type-title);
 }
 
+h1 {
+	font-size: var(--type-size-title);
+}
+
+h2 {
+	font-size: var(--type-size-header);
+}
+
 p, li, aside, blockquote, .body {
 	font-family: var(--type-body);
+	font-size: var(--type-size-body);
 }
 
 label, code, pre, .label {

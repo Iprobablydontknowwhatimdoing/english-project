@@ -1,3 +1,31 @@
 :root {
-	--white: #fff;
+  --primary-hue: 145;
+  --primary-chroma: 0.135;
+	--primary-lightness: 0.58;
+	--accent-hue: calc(mod(var(--primary-hue) + 225, 360));
+  --accent-lightness: 0.4;
+
+	--base-hue: 125;
+  --base-sat: 40%;
+	--green-7-5: hsl(var(--base-hue), var(--base-sat), 7.5%);
+	--green-10: hsl(var(--base-hue), var(--base-sat), 10%);
+  --green-20: hsl(var(--base-hue), var(--base-sat), 20%);
+  --green-30: hsl(var(--base-hue), var(--base-sat), 30%);
+  --green-40: hsl(var(--base-hue), var(--base-sat), 40%);
+  --green-50: hsl(var(--base-hue), var(--base-sat), 50%);
+  --green-60: hsl(var(--base-hue), var(--base-sat), 60%);
+  --green-70: hsl(var(--base-hue), var(--base-sat), 70%);
+  --green-80: hsl(var(--base-hue), var(--base-sat), 80%);
+  --green-90: hsl(var(--base-hue), var(--base-sat), 90%);
+  --green-95: hsl(var(--base-hue), var(--base-sat), 95%);
+
+
+	--primary: light-dark(var(--green-7-5), var(--green-95));
+	--primary-surface-0-5: light-dark(var(--green-80), var(--green-7-5));
+	--primary-surface: light-dark(var(--green-95), var(--green-10));
+	--primary-surface-2: light-dark(var(--green-90), var(--green-20));
+	--primary-surface-3: light-dark(var(--green-80), var(--green-30));
+
+	--accent: oklch(from var(--primary) l c calc(h+255));
+	color: var(--primary);
 }
