@@ -26,6 +26,7 @@ main {
 	}
 }
 .head-cover {
+	gap: 2ch;
   overflow-inline: clip;
   isolation: isolate;
 	align-content: center;
@@ -54,7 +55,7 @@ main {
     filter: brightness(var(--bg-brightness)) saturate(var(--bg-saturate));
     --depth: min(calc((var(--sp) + 0.2) * 2), 1.75);
     --depth-calc: calc(50% * (1 - var(--depth)));
-    --seed: 0.73;
+    --seed: 0.75;
     --r0: calc(var(--depth-calc) + 50% * var(--seed) * var(--depth));
     --r1: calc(var(--depth-calc) + 50% * (var(--seed) * 1.1) * var(--depth));
     --r2: calc(var(--depth-calc) + 50% * (var(--seed) * 0.9) * var(--depth));
