@@ -13,6 +13,10 @@
   },
   "dependencies": {
     "astro": "^6.3.0",
+    "css-if-polyfill": "^0.1.5",
+    "cssnano": "^8.0.1",
+    "lightningcss": "^1.32.0",
+    "postcss-preset-env": "^11.3.0",
     "sass": "^1.99.0"
   }
 }

@@ -1,34 +1,51 @@
 section > hgroup {
-	display: flex;
-	align-items: baseline;
-	justify-content: space-between;
-	gap: 1rem;
-	column-span: all;
-	contain: content;
-	> p {
-		text-wrap: pretty;
-		text-align: end;
-	}
-	&::after {
-		background-color: oklch(from var(--primary) l c h /0.5);
-		content: '';
-		display: block;
-		block-size: 5px;
-		border-radius: 5rem;
-		position: absolute;
-		inset-block-end: 1rem;
-		inset-inline: 0;
-	}
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  column-span: all;
+  contain: content;
+  > p {
+    text-wrap: pretty;
+    text-align: end;
+  }
+  &::after {
+    background-color: oklch(from var(--primary) l c h / 0.5);
+    content: "";
+    display: block;
+    block-size: 5px;
+    border-radius: 5rem;
+    position: absolute;
+    inset-block-end: 1rem;
+    inset-inline: 0;
+  }
 }
-section {
-	columns: 3 40ch;
-	column-wrap: wrap;
-	column-height: 80vb;
-	column-fill: auto;
-	row-rule: 1px solid oklch(from var(--primary) l c h / 0.25);
-	row-gap: 2rem;
-	column-fill: balance;
+main > section {
+  columns: 3 40ch;
+  column-wrap: wrap;
+  column-height: 80vb;
+  row-rule: 1px solid oklch(from var(--primary) l c h / 0.25);
+  row-gap: 2rem;
+  column-fill: auto;
+  @container (inline-size < 80ch) {
+    columns: 1;
+    row-rule: none;
+    gap: 0;
+    > :not(h1, h2, hgroup) {
+      max-inline-size: 80ch;
+      margin-inline: auto;
+    }
+  }
+  @supports not (row-rule: 1px solid black) {
+    columns: 1;
+    row-rule: none;
+    gap: 0;
+    > :not(h1, h2, hgroup) {
+      max-inline-size: 80ch;
+      margin-inline: auto;
+    }
+  }
 }
 h3 {
-	break-after: avoid;
+  break-after: avoid;
 }

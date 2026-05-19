@@ -1,15 +1,11 @@
-@function --light-dark(--l, --d) {
-  result: if(color-scheme(dark): var(--d) ; else: var(--l));
-}
-
 @property --sp {
   syntax: "<number>";
   inherits: true;
   initial-value: 0;
 }
 main {
-	container-type: inline-size;
-	container-name: main;
+  container-type: inline-size;
+  container-name: main;
 }
 @keyframes sp {
   from {
@@ -19,34 +15,35 @@ main {
     --sp: 1;
   }
 }
-@container (inline-size < 400px) {
-	.head-cover.head-cover {
-		grid-template-areas: "fig" "heading";
-		grid-template-columns: 1fr;
-	}
-}
+
 .head-cover {
-	gap: 2ch;
+  gap: 2ch;
   overflow-inline: clip;
   isolation: isolate;
-	align-content: center;
-	display: grid;
-	grid-template-areas: "heading fig";
-	grid-template-columns: 1fr auto;
-	align-items: center;
+  align-content: center;
+  display: grid;
+  grid-template-areas: "heading fig";
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  @container (inline-size < 400px) {
+    grid-template-areas: "fig" "heading";
+    grid-template-columns: 1fr;
+  }
   .fig {
-		animation: sp both;
-		animation-timeline: view(block);
-		animation-range: exit;
-		grid-area: fig;
-		background-image: radial-gradient(circle at center, black 0.25rem, white 0);
-		background-size: 1rem 1rem;
-		background-repeat: round;
-		aspect-ratio: 1;
-		max-block-size: 500px;
+    animation: sp both;
+    animation-timeline: view(block);
+    animation-range: exit;
+    grid-area: fig;
+    background-image: radial-gradient(circle at center, black 0.25rem, white 0);
+    background-size: 1rem 1rem;
+    background-repeat: round;
+    aspect-ratio: 1;
+    max-block-size: 500px;
     z-index: -1;
-    --bg-brightness: --light-dark(1.55, 0.45);
-    --bg-saturate: --light-dark(1.25, 0.75);
+    --bg-brightness: 1.25;
+    @media (prefers-color-scheme: dark) {
+      --bg-brightness: 0.75;
+    }
 
     object-fit: cover;
     padding: 0;
@@ -65,7 +62,6 @@ main {
     --r6: calc(var(--depth-calc) + 50% * (var(--seed) * 0.6) * var(--depth));
     --r7: calc(var(--depth-calc) + 50% * (var(--seed) * 0.8) * var(--depth));
 
-    /* --- 4. Abstracted Coordinates (Maps radius & angle to X/Y positions) --- */
     --x0: calc(50% + var(--r0) * cos(0));
     --y0: calc(50% + var(--r0) * sin(0));
     --x1: calc(50% + var(--r1) * cos((1/4) * pi));
@@ -83,8 +79,28 @@ main {
     --x7: calc(50% + var(--r7) * cos((7/4) * pi));
     --y7: calc(50% + var(--r7) * sin((7/4) * pi));
 
-    /* --- 5. Hyper-Clean Rendering Mapping --- */
-    @supports not (border-shape: circle(500px)) {
+    @supports not (
+      border-shape: shape(
+          from calc((var(--x7) + var(--x0)) / 2)
+            calc((var(--y7) + var(--y0)) / 2),
+          curve to calc((var(--x0) + var(--x1)) / 2)
+            calc((var(--y0) + var(--y1)) / 2) with var(--x0) var(--y0),
+          curve to calc((var(--x1) + var(--x2)) / 2)
+            calc((var(--y1) + var(--y2)) / 2) with var(--x1) var(--y1),
+          curve to calc((var(--x2) + var(--x3)) / 2)
+            calc((var(--y2) + var(--y3)) / 2) with var(--x2) var(--y2),
+          curve to calc((var(--x3) + var(--x4)) / 2)
+            calc((var(--y3) + var(--y4)) / 2) with var(--x3) var(--y3),
+          curve to calc((var(--x4) + var(--x5)) / 2)
+            calc((var(--y4) + var(--y5)) / 2) with var(--x4) var(--y4),
+          curve to calc((var(--x5) + var(--x6)) / 2)
+            calc((var(--y5) + var(--y6)) / 2) with var(--x5) var(--y5),
+          curve to calc((var(--x6) + var(--x7)) / 2)
+            calc((var(--y6) + var(--y7)) / 2) with var(--x6) var(--y6),
+          curve to calc((var(--x7) + var(--x0)) / 2)
+            calc((var(--y7) + var(--y0)) / 2) with var(--x7) var(--y7)
+        )
+    ) {
       clip-path: shape(
         from calc((var(--x7) + var(--x0)) / 2) calc((var(--y7) + var(--y0)) / 2),
         curve to calc((var(--x0) + var(--x1)) / 2)
@@ -105,7 +121,29 @@ main {
           calc((var(--y7) + var(--y0)) / 2) with var(--x7) var(--y7)
       );
     }
-    @supports (border-shape: circle(500px)) {
+
+    @supports (
+      border-shape: shape(
+          from calc((var(--x7) + var(--x0)) / 2)
+            calc((var(--y7) + var(--y0)) / 2),
+          curve to calc((var(--x0) + var(--x1)) / 2)
+            calc((var(--y0) + var(--y1)) / 2) with var(--x0) var(--y0),
+          curve to calc((var(--x1) + var(--x2)) / 2)
+            calc((var(--y1) + var(--y2)) / 2) with var(--x1) var(--y1),
+          curve to calc((var(--x2) + var(--x3)) / 2)
+            calc((var(--y2) + var(--y3)) / 2) with var(--x2) var(--y2),
+          curve to calc((var(--x3) + var(--x4)) / 2)
+            calc((var(--y3) + var(--y4)) / 2) with var(--x3) var(--y3),
+          curve to calc((var(--x4) + var(--x5)) / 2)
+            calc((var(--y4) + var(--y5)) / 2) with var(--x4) var(--y4),
+          curve to calc((var(--x5) + var(--x6)) / 2)
+            calc((var(--y5) + var(--y6)) / 2) with var(--x5) var(--y5),
+          curve to calc((var(--x6) + var(--x7)) / 2)
+            calc((var(--y6) + var(--y7)) / 2) with var(--x6) var(--y6),
+          curve to calc((var(--x7) + var(--x0)) / 2)
+            calc((var(--y7) + var(--y0)) / 2) with var(--x7) var(--y7)
+        )
+    ) {
       border-shape: shape(
         from calc((var(--x7) + var(--x0)) / 2) calc((var(--y7) + var(--y0)) / 2),
         curve to calc((var(--x0) + var(--x1)) / 2)
@@ -125,22 +163,22 @@ main {
         curve to calc((var(--x7) + var(--x0)) / 2)
           calc((var(--y7) + var(--y0)) / 2) with var(--x7) var(--y7)
       );
-			border: 1rch solid var(--green-20);
-			box-shadow: 1rch 1rch 0 var(--green-10);
+      border: 1rch solid var(--green-20);
+      box-shadow: 1rch 1rch 0 var(--green-10);
     }
-	}
+  }
   > hgroup {
-		grid-area: heading;
+    grid-area: heading;
     padding-block: 1rem;
     padding-inline-start: clamp(1ch, 1rem + 2%, 3rem);
-		inline-size: fit-content;
+    inline-size: fit-content;
     > h1 {
-			text-align: center;
+      text-align: center;
       text-wrap: balance;
     }
     > p {
       text-wrap: pretty;
-			text-indent: 2rem;
+      text-indent: 2rem;
     }
   }
 }

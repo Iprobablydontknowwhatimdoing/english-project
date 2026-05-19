@@ -1,0 +1,45 @@
+@keyframes sway-in {
+  from {
+    transform: rotate(
+      calc(
+        (mod(sibling-index(), 2) * 2 + mod(sibling-index(), 3)) * (4deg) *
+          sign(mod(sibling-index(), 3) - 1.5)
+      )
+    ) translateY(5px);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.question {
+	animation: sway-in both;
+	animation-timeline: view(block);
+	animation-range: entry cover 60%;
+  display: block;
+  background: var(--primary-surface-2);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-indent: 0;
+  text-align: center;
+  rotate: calc(
+    (mod(sibling-index(), 2) * 2 + mod(sibling-index(), 3)) * (1deg) *
+      sign(mod(sibling-index(), 3) - 1.5)
+  );
+	contain: content;
+	&::after {
+		content: '?';
+		rotate: 20grad;
+		transform-origin: top left;
+		font-size: 500%;
+		position: absolute;
+		inset-block-start: calc(1rem - 5px);
+		inset-inline-start: 1rem;
+		text-box: trim-both cap alphabetic;
+		opacity: 0.25;
+		user-select: none;
+	}
+}

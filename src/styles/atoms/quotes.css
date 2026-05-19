@@ -1,0 +1,40 @@
+@keyframes text-fade-in {
+	from {
+		translate: 0 5px;
+		opacity: 0;
+		filter: blur(2px);
+	}
+	to {
+		translate: 0 0;
+		opacity: 1;
+		filter: blur(0);
+	}
+}
+
+blockquote {
+	border-block: 0.25ex solid oklch(from var(--primary) l c h / 0.5);
+	padding-block: 0.5em;
+	break-inside: avoid;
+	text-align: center;
+	font-family: var(--type-title);
+	contain: content;
+	animation: text-fade-in both;
+	animation-timeline: view(block);
+	animation-range: entry cover 60%;
+	&::before {
+		content: '\201c';
+		rotate: 20grad;
+		transform-origin: top left;
+		font-size: 200%;
+		position: absolute;
+		inset-block-start: 0.25em;
+		inset-inline-start: 0;
+		text-box: trim-both cap alphabetic;
+		opacity: 0.25;
+		user-select: none;
+	}
+	&::after {
+		content: '\201d';
+		margin-inline-start: -0.5ch;
+	}
+}
