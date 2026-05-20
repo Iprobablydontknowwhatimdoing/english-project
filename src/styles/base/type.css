@@ -1,13 +1,22 @@
+@font-face {
+	font-family: 'atk mono fall';
+	src: local('Nimbus Mono PS', 'Courier New', monospace);
+	font-weight: 400;
+	font-style: normal;
+}
 :root {
 	--type-title: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
-	--type-body: var(--atk-next), 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
-	--type-label: var(--atk-mono), 'Nimbus Mono PS', 'Courier New', monospace;
+	--type-body: var(--atk-next);
+	--type-label: var(--atk-mono);
 	--type-size-body: clamp(0.75rem, 0.607rem + 1.429vi, 1.75rem);
 	--type-size-title: clamp(2.5rem, 2.369rem + 1.46vi, 3.5rem);
 	--type-size-header: clamp(1.5rem, 1.401rem + 1.095vi, 2.25rem);
 	--type-size-body: clamp(0.75rem, 0.684rem + 0.73vi, 1.25rem);
 	--font-size: var(--type-size-body);
+	--type-size-label: clamp(0.625rem, 0.607rem + 0.714vi, 1.125rem);
 	font-size: var(--type-size-body);
+	line-height: 1.5;
+	letter-spacing: 0.02em;
 }
 
 h1, h2, h3, h4, h5, h6, .header {

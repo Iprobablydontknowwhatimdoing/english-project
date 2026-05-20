@@ -36,3 +36,6 @@ p {
 h3,h4 {
 	text-align: center;
 }
+ol {
+	text-indent: 2rem hanging;
+}

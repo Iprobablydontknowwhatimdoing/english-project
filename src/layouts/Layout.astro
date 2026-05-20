@@ -1,20 +1,22 @@
 ---
-import { Font } from 'astro:assets';
-import '../styles/_entry.css';
+import { Font } from "astro:assets";
+import Mountain from "../assets/mountain.png";
+import "../styles/_entry.css";
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Detoxing from Life</title>
-		<Font cssVariable="--atk-mono" />
-		<Font cssVariable="--atk-next" />
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href={Mountain.src} />
+    <meta name="generator" content={Astro.generator} />
+    <title>Starved for Experience</title>
+    <Font cssVariable="--atk-mono" />
+    <Font cssVariable="--atk-next" />
+		<meta name="description" content="A collection of essays on the topic of our loneliness epidemic and how to reach out in spite of the barriers" />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>

@@ -12,12 +12,12 @@ export default defineConfig({
     provider: fontProviders.fontsource(),
     name: "Atkinson Hyperlegible Next",
     cssVariable: "--atk-next",
-		optimizedFallbacks: false,
   },
 	{
 		provider: fontProviders.fontsource(),
 		name: "Atkinson Hyperlegible Mono",
 		cssVariable: "--atk-mono",
-		optimizedFallbacks: false,
-	}]
+	}],
+	site: 'https://iprobablydontknowwhatimdoing.github.io',
+	base: '/english'
 });

@@ -21,10 +21,10 @@ nav > ul {
   inline-size: 100%;
 	flex-wrap: wrap;
   > li {
-		min-inline-size: fit-content;
     list-style: none;
     font-family: var(--type-label);
     > a {
+			inline-size: fit-content;
       translate: -0.75rch -0.75rch;
       color: var(--primary);
       text-decoration: none;

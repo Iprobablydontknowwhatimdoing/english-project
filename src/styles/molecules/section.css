@@ -18,9 +18,10 @@ section > hgroup {
     position: absolute;
     inset-block-end: 1rem;
     inset-inline: 0;
+		margin-block-start: 5px;
   }
 }
-main > section {
+main > section:has(> p) {
   columns: 3 40ch;
   column-wrap: wrap;
   column-height: 80vb;

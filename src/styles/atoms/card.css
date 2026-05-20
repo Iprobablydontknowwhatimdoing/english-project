@@ -1,0 +1,103 @@
+@keyframes fade-in {
+  from {
+    translate: 0 1em;
+    opacity: 0;
+    filter: blur(5px);
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+section ul {
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(min(50ch, 100%), 1fr));
+  gap: 1em;
+  margin: 0;
+  padding: 0.5em;
+	li {
+	container-type: inline-size;
+	}
+}
+li {
+	margin: 0;
+}
+article {
+  display: grid;
+  contain: content;
+  border-radius: 0.5em;
+  background: var(--primary-surface-2);
+  grid-template: "fig title" auto
+    "fig desc" 1fr
+    "fig link" auto;
+  gap: 1em;
+  grid-template-columns: subgrid;
+	animation: fade-in both;
+	animation-timeline: view(block);
+	animation-range: entry cover 50%;
+  > :nth-child(1 of :not(figure, img)) {
+    margin-block-start: 1em;
+  }
+  > :not(figure, img) {
+    margin-inline-end: 1em
+  }
+  > :nth-last-child(1 of :not(figure, img)) {
+    margin-block-end: 1em;
+  }
+  @container (inline-size < 40ch) {
+    grid-template: "fig" "title" "desc" "link";
+    grid-template-rows: subgrid;
+    > :nth-child(1 of :not(figure, img)) {
+      margin-block-start: 0;
+    }
+    > :not(figure, img) {
+      margin-inline-start: 1em;
+    }
+  }
+  > :is(figure, img) {
+    grid-area: fig;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+  > figure {
+    contain: content;
+    margin: 0;
+    > img {
+      block-size: 100%;
+      inline-size: 100%;
+    }
+    > figcaption {
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline: 0;
+      backdrop-filter: blur(5px) contrast(0.5) brightness(1.5);
+      padding-inline: 0.5em;
+    }
+  }
+  > :where(h3) {
+    grid-area: title;
+    margin-block-end: 0;
+		text-align: start;
+  }
+  > p {
+    margin-block: 0;
+    grid-area: desc;
+  }
+  > a {
+    grid-area: link;
+    inline-size: fit-content;
+    border-radius: 0.5em;
+    color: currentcolor;
+    font: inherit;
+    background-color: var(--primary-surface-3);
+    padding: 0.5em;
+    text-box: trim-both cap alphabetic;
+    margin-inline-start: auto;
+  }
+  img {
+    object-fit: cover;
+  }
+}

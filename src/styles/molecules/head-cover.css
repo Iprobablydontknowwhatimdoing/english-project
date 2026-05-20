@@ -16,6 +16,13 @@ main {
   }
 }
 
+.sub-sub-heading {
+	font-family: var(--type-title);
+	text-align: center;
+	color: oklch(from var(--primary) l c h / 0.65);
+	font-weight: bold;
+}
+
 .head-cover {
   gap: 2ch;
   overflow-inline: clip;
