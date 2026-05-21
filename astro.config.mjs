@@ -19,5 +19,8 @@ export default defineConfig({
 		cssVariable: "--atk-mono",
 	}],
 	site: 'https://iprobablydontknowwhatimdoing.github.io',
-	base: '/english'
+	base: '/english',
+	build: {
+		inlineStylesheets: 'always',
+	}
 });
